@@ -1,0 +1,9 @@
+transformers
+torch
+torchvision
+gradio
+Pillow
+pandas
+insightface
+scikit-learn
+pytesseract 
