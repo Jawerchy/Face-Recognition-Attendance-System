@@ -1,137 +1,110 @@
-# Face Recognition & Card-Based Attendance System
+# Face Recognition Attendance System: A Dual-Mode Solution
 
-This project implements a dual-mode attendance system using:
-- **Face Recognition** (ArcFace + classifier)
-- **Card-Based Attendance** (OCR extraction of registration/roll number)
-
-with a modern Gradio interface.
-
-![Face Recognition Attendance System Gradio Interface](images/gradio_interface.jpg)
+![Face Recognition Attendance System](https://img.shields.io/badge/Download%20Releases-blue?style=for-the-badge&logo=github&link=https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases)
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [Technical Stack](#technical-stack)
-- [Coding Guidelines](#coding-guidelines)
-- [Attendance Logic](#attendance-logic)
-- [Testing & Validation](#testing--validation)
-- [Deployment Guidelines](#deployment-guidelines)
-- [File Structure](#file-structure)
-- [Setup](#setup)
-- [Additional Notes](#additional-notes)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Project Overview
 
-- **Objective**: Develop an attendance system that supports:
-  - **Face Recognition**: Mark attendance by recognizing a student's face.
-  - **Card-Based Attendance**: Mark attendance by extracting the registration/roll number from a student card using OCR.
-- **Dataset**: 10+ facial images per student, organized in `dataset/student_id/` folders.
-- **Model**: Uses ArcFace (InsightFace) for face embeddings and a trained classifier for student recognition.
-- **OCR**: Uses Tesseract-OCR (via pytesseract) to extract registration numbers from card images.
+The **Face Recognition Attendance System** is designed to streamline attendance tracking using two methods: face recognition and card-based attendance. This project utilizes the ArcFace model for face recognition and employs OCR to extract registration or roll numbers from cards. This dual approach enhances flexibility and accuracy in attendance management.
 
-## Technical Stack
+![Attendance System](https://via.placeholder.com/800x400.png?text=Attendance+System)
 
-- **Programming Language**: Python 3.10+
-- **Libraries & Frameworks**:
-  - `insightface`, `scikit-learn`: For ArcFace embeddings and classification.
-  - `pytesseract`: For OCR from card images.
-  - `torch`, `torchvision`: For deep learning operations.
-  - `gradio`: For the user interface.
-  - `PIL` (Python Imaging Library): For image processing.
-  - `pandas`, `numpy`: For data handling.
+## Features
 
-## Coding Guidelines
+- **Dual-Mode Attendance**: Use face recognition or card-based methods.
+- **High Accuracy**: Leverages ArcFace for reliable face detection.
+- **User-Friendly Interface**: Built with Gradio for easy interaction.
+- **Data Management**: Utilizes Pandas for effective data handling.
+- **Real-Time Processing**: Fast and efficient attendance marking.
+- **Easy Setup**: Simple installation and configuration.
 
-- **Code Structure**: Modularized into separate files:
-  - `data_loader.py`: Handles data loading and preprocessing.
-  - `model.py`: (Legacy) ViT-based face recognition (not used by default).
-  - `arcface_recognition.py`: ArcFace-based face recognition logic.
-  - `card_attendance.py`: Card-based attendance using OCR.
-  - `attendance.py`: Manages attendance logic and record-keeping.
-  - `app.py`: Integrates all modules and runs the Gradio interface.
-- **Naming Conventions**: `snake_case` for functions and variables, `PascalCase` for classes.
-- **Documentation**: Docstrings for all functions and classes, comments for complex logic.
-- **Error Handling**: Try-except blocks and error logging.
+## Technologies Used
 
-## Attendance Logic
+This project incorporates several key technologies:
 
-- **Recognition Flow**:
-  1. User uploads a face or card image.
-  2. The system processes the image:
-     - **Face Tab**: Predicts the student's identity using ArcFace + classifier.
-     - **Card Tab**: Extracts registration/roll number using OCR.
-  3. The system checks the attendance record:
-     - If the student hasn't checked in today: Record check-in timestamp.
-     - If the student has checked in but not out: Record check-out timestamp.
-     - If both recorded: Notify attendance is complete for the day.
-- **Data Storage**: Attendance records are maintained in `attendance_records.csv`.
+- **Face Recognition**: ArcFace, InsightFace
+- **OCR**: Tesseract OCR for card number extraction
+- **Data Handling**: Pandas DataFrame for data management
+- **Image Processing**: PIL for image manipulation
+- **Machine Learning**: Scikit-learn for classification
+- **Deep Learning**: PyTorch and torchvision for model training
+- **Web Interface**: Gradio for a user-friendly interface
 
-## Testing & Validation
+## Installation
 
-- **Test Cases**: Validate both face and card recognition, test attendance logic scenarios.
-- **Performance Metrics**: Monitor model accuracy, OCR extraction accuracy, and system response time.
+To set up the Face Recognition Attendance System, follow these steps:
 
-## Deployment Guidelines
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Jawerchy/Face-Recognition-Attendance-System.git
+   cd Face-Recognition-Attendance-System
+   ```
 
-- **Gradio Interface**: User-friendly interface with two tabs:
-  - **Face Recognition Attendance**: Upload a face image.
-  - **Card-Based Attendance**: Upload a card image.
-- **Tesseract-OCR**: Must be installed and available in your system PATH for card-based attendance.
-- **Dependencies**: Listed in `requirements.txt`.
-
-## File Structure
-
-```
-project_root/
-├── data_loader.py
-├── model.py
-├── arcface_recognition.py
-├── card_attendance.py
-├── attendance.py
-├── app.py
-├── requirements.txt
-├── dataset/
-│   ├── student_1/
-│   │   ├── img1.jpg
-│   │   └── ...
-│   └── student_n/
-│       ├── img1.jpg
-│       └── ...
-├── attendance_records.csv
-├── arcface_classifier.joblib
-├── arcface_labels.joblib
-├── arcface_embeddings.npy
-├── arcface_labels.npy
-├── train_arcface_classifier.py
-├── convert_embeddings_to_means_csv.py
-└── README.md
-```
-
-## Setup
-
-1. Clone the repository.
-2. Install dependencies:
-   ```sh
+2. **Install Dependencies**:
+   Make sure you have Python installed. Then, install the required packages:
+   ```bash
    pip install -r requirements.txt
    ```
-3. **Install Tesseract-OCR** (for card-based attendance):
-   - **Windows**: Download and install from [UB Mannheim builds](https://github.com/UB-Mannheim/tesseract/wiki).
-   - **Linux**: `sudo apt-get install tesseract-ocr`
-   - **Mac**: `brew install tesseract`
-   - **Add Tesseract to your PATH** if needed.
-4. Organize your dataset in the `dataset/` directory with subdirectories for each student ID.
-5. Train the ArcFace classifier:
-   ```sh
-   python train_arcface_classifier.py
-   ```
-6. Run the application:
-   ```sh
+
+3. **Download Pre-trained Models**:
+   You can find the necessary models in the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases). Download the files and place them in the appropriate directories.
+
+4. **Run the Application**:
+   Launch the application using:
+   ```bash
    python app.py
    ```
 
-## Additional Notes
+## Usage
 
-- **Security**: Avoid permanent storage of uploaded images, protect attendance records.
-- **Scalability**: Design for easy addition of students, optimize model inference.
-- **Maintenance**: Regularly update dataset, monitor logs.
-- **Customization**: Adjust the regex in `card_attendance.py` to match your card format if needed. 
+Once the application is running, you can access it through your web browser. The interface allows you to choose between face recognition and card-based attendance.
+
+### Face Recognition Mode
+
+1. Upload a photo of the participant.
+2. The system will process the image and mark attendance if the face is recognized.
+
+### Card-Based Attendance Mode
+
+1. Scan the card with the registration number.
+2. The system will extract the number using OCR and mark attendance.
+
+![Usage Example](https://via.placeholder.com/800x400.png?text=Usage+Example)
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes.
+4. Push to your branch.
+5. Create a pull request.
+
+Please ensure that your code adheres to the project's coding standards and includes relevant tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or issues, please reach out via the GitHub Issues page or directly through the repository.
+
+For releases, visit the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases) to download the latest updates and models.
+
+![Contact](https://via.placeholder.com/800x400.png?text=Contact+Us)
+
+---
+
+By utilizing this Face Recognition Attendance System, you can significantly improve attendance tracking in various settings, such as schools, universities, and corporate environments. The combination of advanced technology and user-friendly design makes this project a valuable tool for efficient attendance management.
